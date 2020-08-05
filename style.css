@@ -1,5 +1,5 @@
 button {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -12,34 +12,57 @@ button {
 }
 
 body {
-   padding:40px 0;
+   padding: 40px 0;
    font-family: 'bebas', sans-serif;
-   background-color:#DDC553;
-   .textcontainer {padding:40px 0;text-align:center;}
-   .particletext {
-      text-align:center;
-      font-size:48px;
-      position: relative;
-      &.bubbles {
-         >.particle {
-            opacity:0;
-            position: absolute;
-            background-color:#fff;
-            animation: bubbles 3s ease-in infinite;
-            border-radius:100%;
-         }
-      }
-
-      @keyframes bubbles {
+   background-color: #DDC553;
+ }
+ body .textcontainer {
+   padding: 40px 0;
+   text-align: center;
+ }
+ body .particletext {
+   text-align: center;
+   font-size: 48px;
+   position: relative;
+ }
+ body .particletext.bubbles > .particle {
+   opacity: 0;
+   position: absolute;
+   background-color: #fff;
+   -webkit-animation: bubbles 3s ease-in infinite;
+           animation: bubbles 3s ease-in infinite;
+   border-radius: 100%;
+ }
+ 
+ @-webkit-keyframes bubbles {
    0% {
-      opacity: 0;
+     opacity: 0;
    }
-   20% { //show and hint at moving
-      opacity: 1;
-      transform:translate(0, -20%);
+   20% {
+     opacity: 1;
+     -webkit-transform: translate(0, -20%);
+             transform: translate(0, -20%);
    }
    100% {
-      opacity: 0;
-      transform:translate(0, -1000%); //Big bubbles move faster
+     opacity: 0;
+     -webkit-transform: translate(0, -1000%);
+             transform: translate(0, -1000%);
    }
-}
+ }
+ 
+ @keyframes bubbles {
+   0% {
+     opacity: 0;
+   }
+   20% {
+     opacity: 1;
+     -webkit-transform: translate(0, -20%);
+             transform: translate(0, -20%);
+   }
+   100% {
+     opacity: 0;
+     -webkit-transform: translate(0, -1000%);
+             transform: translate(0, -1000%);
+   }
+ }
+ 

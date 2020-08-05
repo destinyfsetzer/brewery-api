@@ -26,10 +26,6 @@ const random = () => {
   //     .catch((error) => console.log(error));
 };
 
-const consoleBeer = () => {
-  console.log(arrayOfLows);
-};
-
 const low = () => {
   fetch("https://api.punkapi.com/v2/beers?abv_lt=5")
     .then((res) => res.json())
@@ -42,14 +38,21 @@ const high = () => {
     .then((response) => (arrayOfHighs = response));
 };
 
+const clearList = () => {
+  allBeer = this.document.getElementsByTagName("UL");
+  // eslint-disable-next-line prettier/prettier
+  for (i = 0; i < allBeer.length; i++) allBeer[i].innerHTML = null;
+};
+
 const randomBeer = () => {
   clearList();
-  const allBeer = document.getElementById("all-beer");
+  random();
+  const allBeer = this.document.getElementById("all-beer");
   arrayRandom.forEach((beer) => {
-    const li = document.createElement("li");
-    const img = document.createElement("img");
+    const li = this.document.createElement("li");
+    const img = this.document.createElement("img");
     img.src = beer.image_url;
-    const beerObject = document.createTextNode(
+    const beerObject = this.document.createTextNode(
       `Beer Name: ${beer.name}, Tagline: ${beer.tagline}, ABV: ${beer.abv}, Description: ${beer.description}`
     );
     li.appendChild(beerObject);
@@ -61,10 +64,10 @@ const randomBeer = () => {
 
 const lowBeers = () => {
   clearList();
-  const allBeer = document.getElementById("all-beer");
+  const allBeer = this.document.getElementById("all-beer");
   arrayOfLows.forEach((beer) => {
-    const li = document.createElement("li");
-    const beerObject = document.createTextNode(
+    const li = this.document.createElement("li");
+    const beerObject = this.document.createTextNode(
       `Beer Name: ${beer.name}, Tagline: ${beer.tagline}, ABV: ${beer.abv}, Description: ${beer.description}`
     );
     li.appendChild(beerObject);
@@ -75,10 +78,10 @@ const lowBeers = () => {
 
 const highBeers = () => {
   clearList();
-  const allBeer = document.getElementById("all-beer");
+  const allBeer = this.document.getElementById("all-beer");
   arrayOfHighs.forEach((beer) => {
-    const li = document.createElement("li");
-    const beerObject = document.createTextNode(
+    const li = this.document.createElement("li");
+    const beerObject = this.document.createTextNode(
       `Beer Name: ${beer.name}, Tagline: ${beer.tagline}, ABV: ${beer.abv}, Description: ${beer.description}`
     );
     li.appendChild(beerObject);
@@ -87,34 +90,29 @@ const highBeers = () => {
   });
 };
 
-const clearList = () => {
-  allBeer = document.getElementsByTagName("UL");
-  // eslint-disable-next-line prettier/prettier
-  for (i = 0; i < allBeer.length; i++) allBeer[i].innerHTML = null;
-};
-
 // JQUERY bubble stuff
 
-// function bubbles() {
-//   $.each($(".particletext.bubbles"), function () {
-//     const bubblecount = ($(this).width() / 50) * 10;
-//     for (let i = 0; i <= bubblecount; i++) {
-//       const size = $.rnd(40, 80) / 10;
-//       $(this).append(
-//         `<span class="particle" style="top:${$.rnd(20, 80)}%; left:${$.rnd(
-//           0,
-//           95
-//         )}%;width:${size}px; height:${size}px;animation-delay: ${
-//           $.rnd(0, 30) / 10
-//         }s;"></span>`
-//       );
-//     }
-//   });
-// }
-// $.rnd = function (m, n) {
-//   m = parseInt(m);
-//   n = parseInt(n);
-//   return Math.floor(Math.random() * (n - m + 1)) + m;
-// };
+function bubbles() {
+  $.each($(".particletext.bubbles"), function () {
+    const bubblecount = ($(this).width() / 50) * 10;
+    for (let i = 0; i <= bubblecount; i++) {
+      const size = $.rnd(40, 80) / 10;
+      $(this).append(
+        `<span class="particle" style="top:${$.rnd(20, 80)}%; left:${$.rnd(
+          0,
+          95
+        )}%;width:${size}px; height:${size}px;animation-delay: ${
+          $.rnd(0, 30) / 10
+        }s;"></span>`
+      );
+    }
+  });
+}
 
-// initparticles();
+jQuery.rnd = function (m, n) {
+  m = parseInt(m);
+  n = parseInt(n);
+  return Math.floor(Math.random() * (n - m + 1)) + m;
+};
+
+initparticles();
