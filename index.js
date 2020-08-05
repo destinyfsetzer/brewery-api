@@ -4,20 +4,21 @@
 // const apiKey = "1edb01805b03ec766525435c8a6effd0";
 // Build an app that allows a user to find breweries near them.
 
-let arrayOfBeers;
 let arrayOfLows;
-// let arrayOfHighs;
+let arrayOfHighs;
+let arrayRandom;
 
 // eslint-disable-next-line no-undef
 window.onload = function () {
-  getBeers();
   low();
+  high();
+  random();
 };
 
-const getBeers = () => {
-  fetch("https://api.punkapi.com/v2/beers")
+const random = () => {
+  fetch("https://api.punkapi.com/v2/beers/random")
     .then((res) => res.json())
-    .then((response) => (arrayOfBeers = response));
+    .then((response) => (arrayRandom = response));
   //     .catch((error) => console.log(error));
 };
 
@@ -31,15 +32,15 @@ const low = () => {
     .then((response) => (arrayOfLows = response));
 };
 
-// const high = () => {
-//   fetch(" https://api.punkapi.com/v2/beers?abv_gt=5")
-//     .then((res) => res.json())
-//     .then((response) => (arrayOfHighs = response));
-// };
+const high = () => {
+  fetch(" https://api.punkapi.com/v2/beers?abv_gt=5")
+    .then((res) => res.json())
+    .then((response) => (arrayOfHighs = response));
+};
 
-const displayBeers = () => {
+const randomBeer = () => {
   const allBeer = document.getElementById("all-beer");
-  arrayOfBeers.forEach((beer) => {
+  arrayRandom.forEach((beer) => {
     const li = document.createElement("li");
     const beerObject = document.createTextNode(
       `Beer Name: ${beer.name}, Tagline: ${beer.tagline}, ABV: ${beer.abv}, Description: ${beer.description}`
@@ -51,18 +52,30 @@ const displayBeers = () => {
 };
 
 const lowBeers = () => {
-  const lowBeer = document.getElementById("all-beer");
+  const allBeer = document.getElementById("all-beer");
   arrayOfLows.forEach((beer) => {
     const li = document.createElement("li");
     const beerObject = document.createTextNode(
       `Beer Name: ${beer.name}, Tagline: ${beer.tagline}, ABV: ${beer.abv}, Description: ${beer.description}`
     );
     li.appendChild(beerObject);
-    lowBeer.append(li);
+    allBeer.append(li);
     console.log(beer);
   });
 };
 
+const highBeers = () => {
+  const allBeer = document.getElementById("all-beer");
+  arrayOfHighs.forEach((beer) => {
+    const li = document.createElement("li");
+    const beerObject = document.createTextNode(
+      `Beer Name: ${beer.name}, Tagline: ${beer.tagline}, ABV: ${beer.abv}, Description: ${beer.description}`
+    );
+    li.appendChild(beerObject);
+    allBeer.append(li);
+    console.log(beer);
+  });
+};
 //          <button onclick="consoleBeer()">Console Beer</button>
 //         <button onclick="lowBeer()">Low ABV</button>
 //         <button onclick="midBeer()">Mid ABV</button>
