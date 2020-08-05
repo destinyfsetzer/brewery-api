@@ -4,18 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
     <title>Document</title>
 </head>
 
 <body>
     <div>
-        <h3>How buzzed do you wanna get?</h3>
-        <button onclick="lowBeers()">Low ABV</button>
-        <button onclick="highBeers()">High ABV</button>
+        <div class="textcontainer"> How
+            <span class="particletext bubbles">Buzzed</span> do you wanna get?
+        </div>
+        <button onclick="lowBeers()">Keep it chill</button>
+        <button onclick="highBeers()">Let's get LIT'</button>
         <button onclick="randomBeer()">RANDOM</button>
         <ul id='all-beer'></ul>
     </div>
+    <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="index.js"></script>
 </body>
-<script src="index.js"></script>
 
 </html>
