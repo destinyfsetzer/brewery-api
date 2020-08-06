@@ -11,11 +11,12 @@ body {
 body .textcontainer {
   padding: 40px 0;
   text-align: center;
+  font-size: 55px;
 }
 
 body .particletext {
   text-align: center;
-  font-size: 48px;
+  font-size: 95px;
   position: relative;
 }
 
@@ -73,7 +74,7 @@ button {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 3rem 3rem;
+  margin: 1rem 2rem;
   cursor: pointer;
   font-family: "Recursive", sans-serif;
 }
@@ -98,7 +99,16 @@ ul {
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
+  align-items: center;
 }
 .beer-abv {
   font-size: 16px;
+}
+
+.beer-description {
+  margin-top: 0;
+}
+
+.beer-tagline{
+  margin-bottom: 0;
 }

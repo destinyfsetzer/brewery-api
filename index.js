@@ -23,7 +23,6 @@ const random = () => {
   fetch("https://api.punkapi.com/v2/beers/random")
     .then((res) => res.json())
     .then((response) => (arrayRandom = response));
-  //     .catch((error) => console.log(error));
 };
 
 const low = () => {
@@ -49,16 +48,17 @@ const randomBeer = () => {
   random();
   const allBeer = this.document.getElementById("all-beer");
   arrayRandom.forEach((beer) => {
+    //nullish coalescing
+    //template string
+    const beerImg = beer.image_url ?? "https://images.punkapi.com/v2/23.png";
+    // insert adjacent ang template literals
     const beerInfo = `<li class="beer-item">
     <h4 class="title">${beer.name} - <span class="beer-abv">abv ${beer.abv}%</span></h4>
-    <h6>${beer.tagline}</h6>
-    <h6>${beer.description}</h6>
+    <h5 class="beer-tagline">${beer.tagline}</h5>
+    <h6 class='beer-description'>${beer.description}</h6>
+    <img src=${beerImg}/>
     </li>`;
     allBeer.insertAdjacentHTML("afterbegin", beerInfo);
-    const img = this.document.createElement("img");
-    img.src = beer.image_url;
-    allBeer.append(img);
-    console.log(beer);
   });
 };
 
@@ -68,11 +68,10 @@ const lowBeers = () => {
   arrayOfLows.forEach((beer) => {
     const beerInfo = `<li class="beer-item">
     <h4 class="title">${beer.name} - <span class="beer-abv">abv ${beer.abv}%</span></h4>
-    <h5>${beer.tagline}</h5>
-    <h6>${beer.description}</h6>
+    <h5 class="beer-tagline">${beer.tagline}</h5>
+    <h6 class='beer-description'>${beer.description}</h6>
     </li>`;
     allBeer.insertAdjacentHTML("afterbegin", beerInfo);
-    console.log(beer);
   });
 };
 
@@ -82,11 +81,10 @@ const highBeers = () => {
   arrayOfHighs.forEach((beer) => {
     const beerInfo = `<li class="beer-item">
     <h4 class="title">${beer.name} - <span class="beer-abv">abv ${beer.abv}%</span></h4>
-    <h6>${beer.tagline}</h6>
-    <h6>${beer.description}</h6>
+    <h5 class="beer-tagline">${beer.tagline}</h5>
+    <h6 class='beer-description'>${beer.description}</h6>
     </li>`;
     allBeer.insertAdjacentHTML("afterbegin", beerInfo);
-    console.log(beer);
   });
 };
 
