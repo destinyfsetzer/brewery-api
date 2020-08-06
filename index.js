@@ -50,7 +50,7 @@ const randomBeer = () => {
   const allBeer = this.document.getElementById("all-beer");
   arrayRandom.forEach((beer) => {
     const beerInfo = `<li class="beer-item">
-    <h4 class="title">${beer.name} - <span class="beer-abv">${beer.abv} abv</span></h4>
+    <h4 class="title">${beer.name} - <span class="beer-abv">abv ${beer.abv}%</span></h4>
     <h6>${beer.tagline}</h6>
     <h6>${beer.description}</h6>
     </li>`;
@@ -67,8 +67,8 @@ const lowBeers = () => {
   const allBeer = this.document.getElementById("all-beer");
   arrayOfLows.forEach((beer) => {
     const beerInfo = `<li class="beer-item">
-    <h4 class="title">${beer.name} - <span class="beer-abv">${beer.abv} abv</span></h4>
-    <h6>${beer.tagline}</h6>
+    <h4 class="title">${beer.name} - <span class="beer-abv">abv ${beer.abv}%</span></h4>
+    <h5>${beer.tagline}</h5>
     <h6>${beer.description}</h6>
     </li>`;
     allBeer.insertAdjacentHTML("afterbegin", beerInfo);
@@ -81,7 +81,7 @@ const highBeers = () => {
   const allBeer = this.document.getElementById("all-beer");
   arrayOfHighs.forEach((beer) => {
     const beerInfo = `<li class="beer-item">
-    <h4 class="title">${beer.name} - <span class="beer-abv">${beer.abv} abv</span></h4>
+    <h4 class="title">${beer.name} - <span class="beer-abv">abv ${beer.abv}%</span></h4>
     <h6>${beer.tagline}</h6>
     <h6>${beer.description}</h6>
     </li>`;

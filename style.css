@@ -1,6 +1,7 @@
 body {
   padding: 40px 0;
   font-family: "bebas", sans-serif;
+  letter-spacing: 3px;
   background-color: #ddc553;
   display: flex;
   justify-content: center;
@@ -72,8 +73,9 @@ button {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 1rem 1rem;
+  margin: 3rem 3rem;
   cursor: pointer;
+  font-family: "Recursive", sans-serif;
 }
 
 .button-container {
@@ -87,6 +89,10 @@ ul {
   margin: 0 10rem;
 }
 .title {
+  font-size: 25px;
+  font-family: "Recursive", sans-serif;
+  margin-bottom: 0px;
+  letter-spacing: 4px;
 }
 .beer-item {
   display: flex;
