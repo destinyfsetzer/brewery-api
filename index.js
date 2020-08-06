@@ -49,14 +49,14 @@ const randomBeer = () => {
   random();
   const allBeer = this.document.getElementById("all-beer");
   arrayRandom.forEach((beer) => {
-    const li = this.document.createElement("li");
+    const beerInfo = `<li class="beer-item">
+    <h4 class="title">${beer.name} - <span class="beer-abv">${beer.abv} abv</span></h4>
+    <h6>${beer.tagline}</h6>
+    <h6>${beer.description}</h6>
+    </li>`;
+    allBeer.insertAdjacentHTML("afterbegin", beerInfo);
     const img = this.document.createElement("img");
     img.src = beer.image_url;
-    const beerObject = this.document.createTextNode(
-      `Beer Name: ${beer.name}, Tagline: ${beer.tagline}, ABV: ${beer.abv}, Description: ${beer.description}`
-    );
-    li.appendChild(beerObject);
-    allBeer.append(li);
     allBeer.append(img);
     console.log(beer);
   });
@@ -80,12 +80,12 @@ const highBeers = () => {
   clearList();
   const allBeer = this.document.getElementById("all-beer");
   arrayOfHighs.forEach((beer) => {
-    const li = this.document.createElement("li");
-    const beerObject = this.document.createTextNode(
-      `Beer Name: ${beer.name}, Tagline: ${beer.tagline}, ABV: ${beer.abv}, Description: ${beer.description}`
-    );
-    li.appendChild(beerObject);
-    allBeer.append(li);
+    const beerInfo = `<li class="beer-item">
+    <h4 class="title">${beer.name} - <span class="beer-abv">${beer.abv} abv</span></h4>
+    <h6>${beer.tagline}</h6>
+    <h6>${beer.description}</h6>
+    </li>`;
+    allBeer.insertAdjacentHTML("afterbegin", beerInfo);
     console.log(beer);
   });
 };
